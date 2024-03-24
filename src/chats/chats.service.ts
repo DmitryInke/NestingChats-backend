@@ -16,11 +16,11 @@ export class ChatsService {
   }
 
   async findAll() {
-    return `This action returns all chats`;
+    return this.chatsRepository.find({});
   }
 
-  async findOne(id: number) {
-    return `This action returns a #${id} chat`;
+  async findOne(_id: string) {
+    return this.chatsRepository.findOne({ _id });
   }
 
   async update(id: number, updateChatInput: UpdateChatInput) {
