@@ -2,18 +2,22 @@ import { Field, ObjectType } from '@nestjs/graphql';
 import { Prop, Schema } from '@nestjs/mongoose';
 import { AbstractEntity } from '../../../common/database/abstract.entity';
 
-@Schema()
 @ObjectType()
+@Schema()
 export class Message extends AbstractEntity {
-  @Prop()
   @Field()
+  @Prop()
   content: string;
 
-  @Prop()
   @Field()
+  @Prop()
   createdAt: Date;
 
-  @Prop()
   @Field()
+  @Prop()
   userId: string;
+
+  @Field()
+  @Prop()
+  chatId: string;
 }
