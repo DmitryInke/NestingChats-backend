@@ -39,7 +39,7 @@ export class MessagesResolver {
         userId !== message.user._id.toHexString()
       );
     },
-  })
+  }) 
   messageCreated(@Args() _messageCreatedArgs: MessageCreatedArgs) {
     return this.messagesService.messageCreated();
   }

@@ -6,7 +6,7 @@ import {
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { UsersRepository } from './users.repository';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { S3Service } from 'src/common/s3/s3.service';
 import {
   USERS_BUCKET,
