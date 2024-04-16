@@ -8,7 +8,7 @@ phases:
       - npm install -g pnpm
   pre_build:
     commands:
-      - pnpm install
+      - pnpm install --fix-lockfile
   build:
     commands:
       - pnpm build
