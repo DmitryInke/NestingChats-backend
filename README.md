@@ -1,73 +1,96 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# NestingChats
 
 ## Description
+NestingChats is a real-time group chat application that allows users to create accounts, exchange messages, and upload profile pictures. The application supports responsive design, ensuring comfortable use on both computers and mobile devices.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Demonstration
 
-## Installation
+Here is a live demonstration of the application in action:
 
+![NestingChats Demo](https://github.com/DmitryInke/NestingChats-backend/blob/master/demo.gif?raw=true)
+
+### Key Features
+- Account creation and profile picture upload.
+- Create group chats or join existing ones with real-time messaging capabilities.
+- Responsive design for various devices.
+
+## Technologies
+
+### Server-side
+- **Nest.js**: The backbone of the server-side application.
+- **GraphQL API**: Used for CRUD operations and managing data through MongoDB.
+- **WebSocket**: Supports subscriptions and real-time through WebSocket connections.
+- **JWT**: User authentication and authorization.
+- **MongoDB**: Database to store user and chat information.
+- **AWS S3**: Used for storing user profile images.
+
+### Client-side
+- **React**: Frontend application.
+- **Material UI**: Component library for creating a responsive interface.
+- **Apollo Client**: Manages application state and interacts with the GraphQL API.
+- **Frontend Repository**: [View the frontend repository on GitHub](https://github.com/DmitryInke/NestingChats-ui)
+
+### Additional Tools and Services
+- **AWS Elastic Beanstalk & Amplify**: Deployment and hosting.
+- **AWS ElastiCache Redis**: Used for PubSub subscriptions.
+- **MongoDB Atlas**: Cloud database service used to manage MongoDB databases.
+- **CI/CD Pipeline**: Continuous integration and delivery.
+
+## Installation and Running
+
+### Backend Installation
+Clone the backend repository:
 ```bash
-$ pnpm install
+git clone https://github.com/DmitryInke/NestingChats-backend
+```
+Install dependencies using pnpm (install pnpm if not installed):
+```bash
+npm install -g pnpm
+pnpm install
+```
+Before running the application, you need to create a `.env` file in the root directory and set your environment variables:
+```plaintext
+MONGODB_URI=
+DB_NAME=
+PORT=
+JWT_SECRET=
+JWT_EXPIRATION=
+AWS_ACCESS_KEY=
+AWS_SECRET_ACCESS_KEY=
+AWS_REGION=
 ```
 
-## Running the app
+#### Running the Backend
+- **Development mode**:
+  ```bash
+  pnpm run start
+  ```
+- **Watch mode**:
+  ```bash
+  pnpm run start:dev
+  ```
 
+### Frontend Installation
+Clone the frontend repository:
 ```bash
-# development
-$ pnpm run start
-
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
+git clone https://github.com/DmitryInke/NestingChats-ui
+```
+Install dependencies using Yarn (install Yarn if not installed):
+```bash
+npm install -g yarn
+yarn install
 ```
 
-## Test
+#### Running the Frontend
+- **Development mode**:
+  ```bash
+  yarn start
+  ```
 
-```bash
-# unit tests
-$ pnpm run test
+## Usage
+To get started with the application, register or log in using your account, and join group chats for real-time communication.
 
-# e2e tests
-$ pnpm run test:e2e
+## Security
+All user data is protected with standard JWT authentication, ensuring the security and confidentiality of your data.
 
-# test coverage
-$ pnpm run test:cov
-```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
